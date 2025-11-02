@@ -15,10 +15,15 @@ pipeline {
             }
         }
 
-        stage('Test') {
+         stage('Test') {
             steps {
-                echo 'Running tests...'
+                echo 'Running unit tests...'
                 bat 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
             }
         }
 
@@ -31,10 +36,10 @@ pipeline {
 
     post {
         success {
-            echo 'Pipeline executed successfully!'
+            echo '✅ Pipeline executed successfully!'
         }
         failure {
-            echo 'Pipeline failed.'
+            echo '❌ Pipeline failed.'
         }
     }
 }
