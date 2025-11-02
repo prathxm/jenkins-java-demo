@@ -1,11 +1,13 @@
 package com.demo;
 
 public class HelloJenkins {
-    public static String greet() {
-        return "Hello from Jenkins Pipeline!";
+
+    public String getMessage() {
+        return "Hello from Jenkins!";
     }
 
-     public static void main(String[] args) {
-        System.out.println(new HelloJenkins().getMessage());
+    public static void main(String[] args) {
+        HelloJenkins hello = new HelloJenkins();
+        System.out.println(hello.getMessage());
     }
 }
