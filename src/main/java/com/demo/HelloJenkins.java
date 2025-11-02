@@ -1,14 +1,11 @@
 package com.demo;
 
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+public class HelloJenkins {
+    public static String greet() {
+        return "Hello from Jenkins Pipeline!";
+    }
 
-public class HelloJenkinsTest {
-
-    @Test
-    public void testGreet() {
-        String expected = "Hello from Jenkins Pipeline!";
-        String actual = HelloJenkins.greet();
-        assertEquals(expected, actual);
+    public static void main(String[] args) {
+        System.out.println(greet());
     }
 }
