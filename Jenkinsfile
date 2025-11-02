@@ -15,6 +15,13 @@ pipeline {
             }
         }
 
+         stage('Run Java Program') {
+            steps {
+                echo '▶️ Running the Java program...'
+                bat 'mvn exec:java -Dexec.mainClass="com.demo.HelloJenkins"'
+            }
+        }
+
         stage('Test') {
             steps {
                 echo '🧪 Running unit tests...'
