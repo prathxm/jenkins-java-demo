@@ -10,14 +10,14 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Building the project...'
+                echo '🏗️ Building the project...'
                 bat 'mvn clean package'
             }
         }
 
-         stage('Test') {
+        stage('Test') {
             steps {
-                echo 'Running unit tests...'
+                echo '🧪 Running unit tests...'
                 bat 'mvn test'
             }
             post {
@@ -29,14 +29,19 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploying application (simulation)...'
+                echo '🚀 Deploying the project...'
+                bat '''
+                if not exist deploy mkdir deploy
+                copy target\\*.jar deploy\\
+                '''
+                echo '✅ Deployment completed — .jar copied to deploy folder.'
             }
         }
     }
 
     post {
         success {
-            echo '✅ Pipeline executed successfully!'
+            echo '🎉 Pipeline completed successfully!'
         }
         failure {
             echo '❌ Pipeline failed.'
