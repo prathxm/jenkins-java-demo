@@ -5,7 +5,7 @@ public class HelloJenkins {
         return "Hello from Jenkins Pipeline!";
     }
 
-    public static void main(String[] args) {
-        System.out.println(greet());
+     public static void main(String[] args) {
+        System.out.println(new HelloJenkins().getMessage());
     }
 }
